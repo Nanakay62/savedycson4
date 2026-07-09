@@ -29,9 +29,9 @@ const CORE_ASSETS = [
   './enemy.js',
   './narrative.js',
   './game.js',
-  './icon-192.png',
-  './icon-512.png',
-  './icon-512-maskable.png'
+  './logo.jpg',
+  './logo.jpg',
+  './logo-maskable.jpg'
 ];
 
 self.addEventListener('install', (event) => {
