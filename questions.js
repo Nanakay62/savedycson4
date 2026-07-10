@@ -183,12 +183,14 @@ const QuestionEngine = {
 
   // ---------------- Relationship / genealogy ----------------
 
-  generateRelationship(era) {
+generateRelationship(era) {
     const pool = this.byEraUpTo(RELATIONSHIPS, era);
     if (pool.length < 4) return this.generateEraFallback(era);
     const pair = this.pick(RecentHistory.freshPool(pool, p => 'rel:' + p.subject));
-    const distractorPool = this.eraScopedOrFull(RELATIONSHIPS.filter(p => p.object !== pair.object), era, 3);
-    const distractors = this.shuffle(distractorPool).slice(0, 3).map(p => p.object);
+    let uniqueObjects = [...new Set(RELATIONSHIPS.filter(p => p.object !== pair.object).map(p => p.object))];
+    const eraScoped = [...new Set(this.eraScopedOrFull(RELATIONSHIPS.filter(p => p.object !== pair.object), era, 3).map(p => p.object))];
+    if (eraScoped.length >= 3) uniqueObjects = eraScoped;
+    const distractors = this.shuffle(uniqueObjects).slice(0, 3);
     const choices = this.shuffle([pair.object, ...distractors]);
     RecentHistory.record('rel:' + pair.subject);
     return {
@@ -197,12 +199,14 @@ const QuestionEngine = {
     };
   },
 
-  generateIdentifyPerson(era) {
+ generateIdentifyPerson(era) {
     const pool = this.byEraUpTo(RELATIONSHIPS, era);
     if (pool.length < 4) return this.generateEraFallback(era);
     const pair = this.pick(RecentHistory.freshPool(pool, p => 'identify:' + p.subject));
-    const distractorPool = this.eraScopedOrFull(RELATIONSHIPS.filter(p => p.subject !== pair.subject), era, 3);
-    const distractors = this.shuffle(distractorPool).slice(0, 3).map(p => p.subject);
+    let uniqueSubjects = [...new Set(RELATIONSHIPS.filter(p => p.subject !== pair.subject).map(p => p.subject))];
+    const eraScoped = [...new Set(this.eraScopedOrFull(RELATIONSHIPS.filter(p => p.subject !== pair.subject), era, 3).map(p => p.subject))];
+    if (eraScoped.length >= 3) uniqueSubjects = eraScoped;
+    const distractors = this.shuffle(uniqueSubjects).slice(0, 3);
     const choices = this.shuffle([pair.subject, ...distractors]);
     RecentHistory.record('identify:' + pair.subject);
     return {
