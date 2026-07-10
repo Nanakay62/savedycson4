@@ -188,7 +188,14 @@ const RELATIONSHIPS = [
   { subject:"Priscilla and Aquila", relation:"tentmaking friends", object:"Paul", era:6, ref:"Acts 18:2-3"},
   { subject:"John Mark", relation:"cousin", object:"Barnabas", era:6, ref:"Colossians 4:10"},
   { subject:"Cornelius", relation:"Roman centurion convert", object:"Peter", era:6, ref:"Acts 10:1-2"},
-  { subject:"Apollos", relation:"student", object:"Priscilla and Aquila", era:6, ref:"Acts 18:24-26"}
+  { subject:"Apollos", relation:"student", object:"Priscilla and Aquila", era:6, ref:"Acts 18:24-26"},
+  { subject:"Bezalel", relation:"chief craftsman of the tabernacle", object:"Moses", era:2, ref:"Exodus 31:1-5"},
+  { subject:"Hur", relation:"companion who helped hold up Moses' hands", object:"Moses", era:2, ref:"Exodus 17:12"},
+  { subject:"Amram and Jochebed", relation:"parents", object:"Moses", era:2, ref:"Exodus 6:20"},
+  { subject:"Rahab", relation:"protector of Israel's spies", object:"Joshua", era:3, ref:"Joshua 2:1-6"},
+  { subject:"Achan", relation:"Israelite whose hidden sin caused defeat", object:"Joshua", era:3, ref:"Joshua 7:1"},
+  { subject:"Nun", relation:"father", object:"Joshua", era:2, ref:"Numbers 13:8"},
+  { subject:"Othniel", relation:"nephew and eventual first judge", object:"Caleb", era:3, ref:"Judges 3:9"}
 ];
 
 /** Kings of the united and divided kingdoms. */
@@ -219,7 +226,10 @@ const KINGS = [
   { name:"Ahab", kingdom:"Israel", order:5, era:4, goodKing:false, ref:"1 Kings 16:29-30" },
   { name:"Jehu", kingdom:"Israel", order:6, era:4, goodKing:null, ref:"2 Kings 9:1-3" },
   { name:"Jeroboam II", kingdom:"Israel", order:7, era:4, goodKing:false, ref:"2 Kings 14:23" },
-  { name:"Hoshea", kingdom:"Israel", order:8, era:4, goodKing:false, ref:"2 Kings 17:1" }
+  { name:"Hoshea", kingdom:"Israel", order:8, era:4, goodKing:false, ref:"2 Kings 17:1" },
+  { name:"Rephidim", event:"where Israel fought Amalek while Moses held up his hands", era:2, ref:"Exodus 17:8-13" },
+  { name:"Elim", event:"an oasis with twelve springs and seventy palm trees where Israel camped", era:2, ref:"Exodus 15:27" },
+  { name:"Valley of Aijalon", event:"where the moon stood still alongside the sun during Joshua's battle for Gibeon", era:3, ref:"Joshua 10:12-13" }
 ];
 
 /** Prophets across both testaments. */
@@ -245,7 +255,8 @@ const PROPHETS = [
   { name:"Zechariah", era:4, type:"minor", note:"saw a series of visions about Jerusalem's future", ref:"Zechariah 1:1" },
   { name:"Malachi", era:4, type:"minor", note:"is the final book of the Old Testament", ref:"Malachi 4:5-6" },
   { name:"John the Baptist", era:5, type:"non-writing", note:"prepared the way for Jesus in the wilderness", ref:"Matthew 3:1-3" },
-  { name:"Agabus", era:6, type:"non-writing", note:"predicted a famine and Paul's arrest in Jerusalem", ref:"Acts 11:27-28" }
+  { name:"Agabus", era:6, type:"non-writing", note:"predicted a famine and Paul's arrest in Jerusalem", ref:"Acts 11:27-28" },
+  { name:"Moses", era:2, type:"non-writing", note:"is remembered as the prophet the Lord knew face to face", ref:"Deuteronomy 34:10" }
 ];
 
 /** Miracles — descriptor, performer, and source book. */
@@ -318,7 +329,17 @@ const MIRACLES = [
   { desc:"Defeating a vast Midianite army with only three hundred men", performer:"Gideon", era:3, book:"Judges", ref:"Judges 7:19-22" },
   { desc:"Being struck blind on the road to Damascus", performer:"Saul (Paul)", era:6, book:"Acts", ref:"Acts 9:3-9" },
   { desc:"Healing the sick simply by his shadow passing over them", performer:"Peter", era:6, book:"Acts", ref:"Acts 5:15-16" },
-  { desc:"Healing the sick through handkerchiefs carried from his body", performer:"Paul", era:6, book:"Acts", ref:"Acts 19:11-12" }
+  { desc:"Healing the sick through handkerchiefs carried from his body", performer:"Paul", era:6, book:"Acts", ref:"Acts 19:11-12" },
+  { desc:"Turning Aaron's rod into a serpent before Pharaoh", performer:"Aaron", era:2, book:"Exodus", ref:"Exodus 7:10-12" },
+  { desc:"Sending a plague of frogs to cover the land of Egypt", performer:"Moses and Aaron", era:2, book:"Exodus", ref:"Exodus 8:6" },
+  { desc:"Sending a plague of lice out of the dust of the land", performer:"Moses and Aaron", era:2, book:"Exodus", ref:"Exodus 8:17" },
+  { desc:"Sending swarms of flies to fill Pharaoh's houses", performer:"Moses", era:2, book:"Exodus", ref:"Exodus 8:24" },
+  { desc:"Striking Egypt's livestock with a deadly plague", performer:"God", era:2, book:"Exodus", ref:"Exodus 9:6" },
+  { desc:"Breaking out boils on man and beast throughout Egypt", performer:"Moses and Aaron", era:2, book:"Exodus", ref:"Exodus 9:10" },
+  { desc:"Striking down the firstborn sons throughout the land of Egypt", performer:"God", era:2, book:"Exodus", ref:"Exodus 12:29" },
+  { desc:"Causing Aaron's rod alone to bud, blossom, and yield almonds overnight", performer:"God", era:2, book:"Numbers", ref:"Numbers 17:8" },
+  { desc:"Consuming Nadab and Abihu with fire for offering strange fire", performer:"God", era:2, book:"Leviticus", ref:"Leviticus 10:1-2" },
+  { desc:"Sparing Rahab and her household when Jericho fell", performer:"Joshua", era:3, book:"Joshua", ref:"Joshua 6:22-23" }
 ];
 
 /** Parables — teacher, book, and the main lesson each one illustrates. */
@@ -422,7 +443,11 @@ const PLACES = [
   { name:"Tarsus", event:"the hometown of the apostle Paul", era:6, ref:"Acts 22:3" },
   { name:"Philippi", event:"the city where Paul and Silas were imprisoned and miraculously freed", era:6, ref:"Acts 16:23-26" },
   { name:"Athens", event:"where Paul preached about the 'unknown god' at the Areopagus", era:6, ref:"Acts 17:22-23" },
-  { name:"Caesarea", event:"where Paul was held prisoner before being sent to Rome", era:6, ref:"Acts 23:33" }
+  { name:"Caesarea", event:"where Paul was held prisoner before being sent to Rome", era:6, ref:"Acts 23:33" },
+  { name:"Ai", event:"the city Israel initially failed to conquer because of Achan's sin", era:3, ref:"Joshua 7:4-5" },
+  { name:"Gilgal", event:"where Israel set up twelve memorial stones after crossing the Jordan", era:3, ref:"Joshua 4:19-20" },
+  { name:"Mount Ebal", event:"where Israel pronounced curses for disobedience upon entering Canaan", era:3, ref:"Joshua 8:33-34" },
+  { name:"Mount Gerizim", event:"where Israel pronounced blessings for obedience upon entering Canaan", era:3, ref:"Joshua 8:33-34" }
 ];
 
 /** Short, well-known KJV verse fragments (public domain) tagged by book. */
@@ -482,7 +507,52 @@ const VERSE_FRAGMENTS = [
   { frag:"Two are better than one.", book:"Ecclesiastes", ref:"Ecclesiastes 4:9" },
   { frag:"Whatsoever thy hand findeth to do, do it with thy might.", book:"Ecclesiastes", ref:"Ecclesiastes 9:10" },
   { frag:"Remember now thy Creator in the days of thy youth.", book:"Ecclesiastes", ref:"Ecclesiastes 12:1" },
-  { frag:"Fear God, and keep his commandments.", book:"Ecclesiastes", ref:"Ecclesiastes 12:13" }
+  { frag:"Fear God, and keep his commandments.", book:"Ecclesiastes", ref:"Ecclesiastes 12:13" },
+  { frag:"Commit thy works unto the Lord, and thy thoughts shall be established.", book:"Proverbs", ref:"Proverbs 16:3" },
+  { frag:"The name of the Lord is a strong tower.", book:"Proverbs", ref:"Proverbs 18:10" },
+  { frag:"Keep thy heart with all diligence; for out of it are the issues of life.", book:"Proverbs", ref:"Proverbs 4:23" },
+  { frag:"He that walketh with wise men shall be wise.", book:"Proverbs", ref:"Proverbs 13:20" },
+  { frag:"In the multitude of counsellors there is safety.", book:"Proverbs", ref:"Proverbs 11:14" },
+  { frag:"In all thy ways acknowledge him, and he shall direct thy paths.", book:"Proverbs", ref:"Proverbs 3:6" },
+  { frag:"Hatred stirreth up strifes: but love covereth all sins.", book:"Proverbs", ref:"Proverbs 10:12" },
+  { frag:"Without counsel purposes are disappointed.", book:"Proverbs", ref:"Proverbs 15:22" },
+  { frag:"A wise son maketh a glad father.", book:"Proverbs", ref:"Proverbs 10:1" },
+  { frag:"He that hath knowledge spareth his words.", book:"Proverbs", ref:"Proverbs 17:27" },
+  { frag:"Better is the end of a thing than the beginning thereof.", book:"Ecclesiastes", ref:"Ecclesiastes 7:8" },
+  { frag:"He that loveth silver shall not be satisfied with silver.", book:"Ecclesiastes", ref:"Ecclesiastes 5:10" },
+  { frag:"Cast thy bread upon the waters: for thou shalt find it after many days.", book:"Ecclesiastes", ref:"Ecclesiastes 11:1" },
+  { frag:"He hath made every thing beautiful in his time.", book:"Ecclesiastes", ref:"Ecclesiastes 3:11" },
+  { frag:"Be not hasty in thy spirit to be angry.", book:"Ecclesiastes", ref:"Ecclesiastes 7:9" },
+  { frag:"Wisdom is better than weapons of war.", book:"Ecclesiastes", ref:"Ecclesiastes 9:18" },
+  { frag:"I AM THAT I AM.", book:"Exodus", ref:"Exodus 3:14" },
+  { frag:"The Lord shall fight for you, and ye shall hold your peace.", book:"Exodus", ref:"Exodus 14:14" },
+  { frag:"My presence shall go with thee, and I will give thee rest.", book:"Exodus", ref:"Exodus 33:14" },
+  { frag:"Honour thy father and thy mother.", book:"Exodus", ref:"Exodus 20:12" },
+  { frag:"Go to the ant, thou sluggard; consider her ways, and be wise.", book:"Proverbs", ref:"Proverbs 6:6" },
+  { frag:"The way of a fool is right in his own eyes.", book:"Proverbs", ref:"Proverbs 12:15" },
+  { frag:"There is a way which seemeth right unto a man, but the end thereof are the ways of death.", book:"Proverbs", ref:"Proverbs 14:12" },
+  { frag:"A man that hath friends must shew himself friendly.", book:"Proverbs", ref:"Proverbs 18:24" },
+  { frag:"The king's heart is in the hand of the Lord.", book:"Proverbs", ref:"Proverbs 21:1" },
+  { frag:"For as he thinketh in his heart, so is he.", book:"Proverbs", ref:"Proverbs 23:7" },
+  { frag:"A just man falleth seven times, and riseth up again.", book:"Proverbs", ref:"Proverbs 24:16" },
+  { frag:"A word fitly spoken is like apples of gold.", book:"Proverbs", ref:"Proverbs 25:11" },
+  { frag:"Boast not thyself of to morrow.", book:"Proverbs", ref:"Proverbs 27:1" },
+  { frag:"Favour is deceitful, and beauty is vain: but a woman that feareth the Lord, she shall be praised.", book:"Proverbs", ref:"Proverbs 31:30" },
+  { frag:"The fear of the Lord is the beginning of wisdom.", book:"Proverbs", ref:"Proverbs 9:10" },
+  { frag:"Vanity of vanities, saith the Preacher, all is vanity.", book:"Ecclesiastes", ref:"Ecclesiastes 1:2" },
+  { frag:"There is no new thing under the sun.", book:"Ecclesiastes", ref:"Ecclesiastes 1:9" },
+  { frag:"A threefold cord is not quickly broken.", book:"Ecclesiastes", ref:"Ecclesiastes 4:12" },
+  { frag:"Be not rash with thy mouth.", book:"Ecclesiastes", ref:"Ecclesiastes 5:2" },
+  { frag:"A good name is better than precious ointment.", book:"Ecclesiastes", ref:"Ecclesiastes 7:1" },
+  { frag:"A time to keep silence, and a time to speak.", book:"Ecclesiastes", ref:"Ecclesiastes 3:7" },
+  { frag:"The Lord is my strength and song, and he is become my salvation.", book:"Exodus", ref:"Exodus 15:2" },
+  { frag:"Ye shall be a peculiar treasure unto me above all people.", book:"Exodus", ref:"Exodus 19:5" },
+  { frag:"Thou shalt not kill.", book:"Exodus", ref:"Exodus 20:13" },
+  { frag:"Thou shalt not steal.", book:"Exodus", ref:"Exodus 20:15" },
+  { frag:"The Lord, The Lord God, merciful and gracious, longsuffering.", book:"Exodus", ref:"Exodus 34:6" },
+  { frag:"Be strong and of a good courage; for the Lord thy God is with thee whithersoever thou goest.", book:"Joshua", ref:"Joshua 1:9" },
+  { frag:"This book of the law shall not depart out of thy mouth.", book:"Joshua", ref:"Joshua 1:8" },
+  { frag:"As for me and my house, we will serve the Lord.", book:"Joshua", ref:"Joshua 24:15" }
 ];
 
 /** Key milestone events per era, used both for Stronghold ordering puzzles
@@ -497,10 +567,12 @@ const ERA_MILESTONES = [
   { event:"Joseph Rises to Power in Egypt", era:1, order:13, ref:"Genesis 41:39-41" },{ event:"Jacob's Family Reunited in Egypt", era:1, order:14, ref:"Genesis 46:29-30" },
   { event:"Plagues of Egypt", era:2, order:1, ref:"Exodus 7:14" },{ event:"Crossing the Red Sea", era:2, order:2, ref:"Exodus 14:21-22" },
   { event:"Mount Sinai & the Law", era:2, order:3, ref:"Exodus 20:1-17" },{ event:"Golden Calf", era:2, order:4, ref:"Exodus 32:1-4" },
+  { event:"The Tabernacle Completed and Consecrated", era:2, order:4.5, ref:"Exodus 40:34-35" },
   { event:"The Twelve Spies Scout Canaan", era:2, order:5, ref:"Numbers 13:1-2" },{ event:"Korah's Rebellion", era:2, order:6, ref:"Numbers 16:1-3" },
+  { event:"Aaron's Rod Buds to Confirm His Priesthood", era:2, order:6.5, ref:"Numbers 17:8" },
   { event:"The Bronze Serpent", era:2, order:7, ref:"Numbers 21:8-9" },{ event:"Forty Years of Wandering", era:2, order:8, ref:"Numbers 14:33-34" },
   { event:"Moses Views the Promised Land from Nebo", era:2, order:9, ref:"Deuteronomy 34:1-4" },
-  { event:"Fall of Jericho", era:3, order:1, ref:"Joshua 6:20" },{ event:"Era of the Judges", era:3, order:2, ref:"Judges 2:16" },
+  { event:"Fall of Jericho", era:3, order:1, ref:"Joshua 6:20" },{ event:"The Sun Stands Still at Gibeon", era:3, order:1.5, ref:"Joshua 10:12-13" },{ event:"Era of the Judges", era:3, order:2, ref:"Judges 2:16" },
   { event:"Saul Crowned King", era:3, order:3, ref:"1 Samuel 10:1" },{ event:"David Defeats Goliath", era:3, order:4, ref:"1 Samuel 17:49-50" },
   { event:"Davidic Kingdom Established", era:3, order:5, ref:"2 Samuel 5:3-4" },{ event:"The Ark of the Covenant Returns to Jerusalem", era:3, order:6, ref:"2 Samuel 6:12-15" },
   { event:"Solomon's Temple Built", era:3, order:7, ref:"1 Kings 6:1" },{ event:"Solomon's Wisdom and the Queen of Sheba's Visit", era:3, order:8, ref:"1 Kings 10:1-3" },
@@ -526,16 +598,16 @@ const ERA_MILESTONES = [
 const ERA_NARRATIVE = [
   [ "In the beginning, God formed a world and called it good.",
     "But sin entered, and with it, distance from the One who made us.",
-    "One family — Abraham's — is chosen to carry hope forward." ],
+    "One family, Abraham's, is chosen to carry hope forward." ],
   [ "Centuries have passed...",
     "Israel cries out beneath Pharaoh's oppression in Egypt.",
-    "God raises up Moses to lead His people toward freedom." ],
-  [ "Free from bondage, Israel enters a promised land.",
-    "Judges rise and fall, then kings — Saul, David, Solomon.",
+    "God raises Moses to lead His people toward freedom, and dwells among them in a tabernacle of His own making." ],
+  [ "Free from bondage, Israel enters a promised land, the sun itself standing still at their cry for victory.",
+    "Judges rise and fall, then kings: Saul, David, Solomon.",
     "A kingdom is built, and a temple raised to the Lord." ],
   [ "The kingdom divides, and hearts drift from God.",
     "Prophets thunder warnings that few are willing to hear.",
-    "Exile comes — yet even in Babylon, hope is not extinguished." ],
+    "Exile comes, yet, even in Babylon, hope is not extinguished." ],
   [ "In the fullness of time, a child is born in Bethlehem.",
     "He teaches, heals, and calls the lost to follow Him.",
     "The Light of the World has come to renew every mind." ],
